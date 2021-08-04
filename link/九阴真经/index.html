@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style:none;
+        }
+        img{
+            vertical-align: bottom;
+        }
+        body{
+            background:black;
+        }
+        .box{
+            width: 1080px;
+            margin:100px auto;
+            overflow: hidden;
+        }
+        .box ul li{
+            position: relative;
+            width: 200px;
+            height: 380px;
+            /* 左浮动 */
+            float: left;
+            /* 模拟鼠标小手 */
+            cursor: pointer;
+        }
+        .box ul li:nth-child( even ){
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 40px;
+        }
+        .box ul li img{
+            width: 200px;
+            height: 380px;
+            transition:all 1s;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .box ul li .frontImg{
+            z-index:10;
+            /* 背向屏幕的时候,不可见 */
+            backface-visibility: hidden;
+        }
+        /* 鼠标移上li以后,对应.frontImg旋转 */
+        .box ul li:hover .frontImg{
+            transform:rotateY(180deg);
+        }
+        /* 默认把后面的那张图翻过去 */
+        .box ul li .backImg{
+            transform:rotateY(-180deg);
+        }
+        /* 鼠标移上li以后,对应.backImg旋转 */
+        .box ul li:hover .backImg{
+            transform:rotateY(0deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <img src="images/card1.png" class="frontImg"/>
+                <img src="images/card1-back.png" class="backImg"/>
+            </li>
+            <li>
+                <img src="images/card2.png" class="frontImg"/>
+                <img src="images/card2-back.png" class="backImg"/>
+            </li>
+            <li>
+                <img src="images/card3.png" class="frontImg"/>
+                <img src="images/card3-back.png" class="backImg"/>
+            </li>
+            <li>
+                <img src="images/card4.png" class="frontImg"/>
+                <img src="images/card4-back.png" class="backImg"/>
+            </li>
+            <li>
+                <img src="images/card5.png" class="frontImg"/>
+                <img src="images/card5-back.png" class="backImg"/>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
